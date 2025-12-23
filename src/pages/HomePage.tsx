@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import PokemonCard from '../components/PokemonCard';
 import { fetchPokemonList, fetchPokemon } from '../data/pokeapi';
 import type { Pokemon } from '../types/pokemon';
 
@@ -33,17 +34,18 @@ function HomePage() {
     cargarPokemons();
   }, []);
 
-if (cargando) return <p>Cargando Pokémon...</p>;
+
+  if (cargando) return <p>Cargando Pokémon...</p>;
   if (error) return <p>{error}</p>;
 
   return (
     <main>
-      <h1>Pokédex Kanto</h1>
-      <ul>
-        {pokemons.map(p => (
-          <li key={p.id}>{p.name}</li>
+     <h1>Pokédex Kanto</h1>
+     <section className="grid-pokemon">
+      {pokemons.map((pokemon) => (
+        <PokemonCard key={pokemon.id} pokemon={pokemon} />
         ))}
-      </ul>
+      </section>
     </main>
   );
 }
