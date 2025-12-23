@@ -11,7 +11,7 @@ function PokemonCard({ pokemon }: PokemonCardProps) {
   const nombreCapitalizado =
     pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
 
-  // cogo la imagen
+  // cojo la imagen
   const imageUrl = pokemon.sprites.other?.['official-artwork']?.front_default 
   || pokemon.sprites.front_default;
 
