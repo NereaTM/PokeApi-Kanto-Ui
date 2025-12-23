@@ -151,3 +151,24 @@ main {
 .tipo-dark { background-color: #705848; color: white; }
 .tipo-steel { background-color: #b8b8d0; color: #333; }
 .tipo-fairy { background-color: #ee99ac; color: #333; }
+
+
+/* Footer */
+.footer {
+  background-color: #1D3557;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 30px;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.footer-subtitle {
+  margin: 5px 0 0;
+  font-size: 12px;
+  opacity: 0.8;
+}
