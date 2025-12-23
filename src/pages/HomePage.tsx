@@ -40,7 +40,6 @@ function HomePage() {
 
   return (
     <main>
-     <h1>Pokédex Kanto</h1>
      <section className="grid-pokemon">
       {pokemons.map((pokemon) => (
         <PokemonCard key={pokemon.id} pokemon={pokemon} />

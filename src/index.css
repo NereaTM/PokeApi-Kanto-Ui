@@ -25,6 +25,38 @@ main {
   padding: 0 1.25rem;
 }
 
+/* header */
+.cabecera {
+  background: linear-gradient(135deg, #ef5350 0%, #e53935 100%);
+  color: white;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.contenedor {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-pokemon {
+  height: 50px;
+}
+
+.logo-pokemon:hover {
+  transform: scale(1.05);
+}
+
+.titulo-kanto {
+  font-size: 2rem;
+  margin-bottom: 0.25rem;
+}
+
 /* PokemonCards */
 .grid-pokemon {
   display: grid;
