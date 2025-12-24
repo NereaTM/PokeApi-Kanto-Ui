@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import PokemonCard from '../components/PokemonCard';
+import PokemonLoading from '../components/ui/PokemonLoading';
 import { fetchPokemonList, fetchPokemon } from '../data/pokeapi';
 import type { Pokemon } from '../types/pokemon';
 
@@ -34,12 +35,19 @@ function HomePage() {
     cargarPokemons();
   }, []);
 
+  // lottie loading
+  if (cargando) {
+    return (
+      <main className="contenedor-principal">
+        <PokemonLoading />
+      </main>
+    );
+  }
 
-  if (cargando) return <p>Cargando Pokémon...</p>;
   if (error) return <p>{error}</p>;
 
   return (
-    <main>
+    <main className="contenedor-principal">
      <section className="grid-pokemon">
       {pokemons.map((pokemon) => (
         <PokemonCard key={pokemon.id} pokemon={pokemon} />
