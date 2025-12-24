@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.png';
+import Navigation from './Navigation';
 
 
 function Header () {
@@ -13,6 +14,8 @@ function Header () {
         <div>
           <h1 className="titulo-kanto">Pokédex Kanto</h1>
         </div>
+
+        <Navigation />
 
       </div>
     </header>

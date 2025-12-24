@@ -57,6 +57,24 @@ main {
   margin-bottom: 0.25rem;
 }
 
+/* Navs*/
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background-color: rgba(255,255,255,0.1);
+}
+
+.nav-link:hover {
+  background-color: rgba(255,255,255,0.2);
+}
+
+.nav-link.active {
+  background-color: rgba(255,255,255,0.3);
+  font-weight: bold;
+}
+
 /* PokemonCards */
 .grid-pokemon {
   display: grid;
