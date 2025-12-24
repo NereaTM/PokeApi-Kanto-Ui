@@ -150,6 +150,13 @@ main {
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
+/* contenedor principal */
+.contenedor-principal {
+  max-width: 1400px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
 /* tipos pokemon */
 .tipo-normal { background-color: #a8a878; color: white; }
 .tipo-fire { background-color: #f08030; color: white; }
