@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import type { Pokemon } from '../types/pokemon';
+import { typeTranslations } from '../utils/translations';
 
 interface PokemonCardProps {
   pokemon: Pokemon;
@@ -27,7 +28,7 @@ function PokemonCard({ pokemon }: PokemonCardProps) {
   return (
     <article className="tarjeta-pokemon">
       <span className="pokemon-number">
-        #{numeroFormateado}
+      {numeroFormateado}
       </span>
 
       <img
@@ -40,13 +41,14 @@ function PokemonCard({ pokemon }: PokemonCardProps) {
 
       <div className="tipos-container">
         {pokemon.types.map((t) => {
+          const tipoTraducido = typeTranslations[t.type.name] || t.type.name;
           
           return (
             <span
               key={t.type.name}
               className={`tipo tipo-${t.type.name}`}
             >
-              {t.type.name}
+              {tipoTraducido}
             </span>
           );
         })}
