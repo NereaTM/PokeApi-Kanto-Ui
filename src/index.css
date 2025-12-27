@@ -194,6 +194,45 @@ body.dark .tarjeta-pokemon {
   padding: 0 2rem;
 }
 
+/* buscador */
+.contenedor-busqueda {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.buscador {
+  width: 100%;
+  padding: 1rem 3rem 1rem 1.5rem;
+  font-size: 1.1rem;
+  border: 2px solid var(--borde-claro);
+  border-radius: 10px;
+  outline: none;
+}
+
+body.dark .buscador {
+  background-color: var(--carta-oscura);
+  border-color: var(--borde-oscuro);
+  color: var(--texto-oscuro);
+}
+
+.buscador:focus {
+  border-color: var(--rojo-pkmn);
+}
+
+.boton-limpiar {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--rojo-pkmn);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
 /* tipos pokemon */
 .tipo-normal { background-color: #a8a878; color: white; }
 .tipo-fire { background-color: #f08030; color: white; }
