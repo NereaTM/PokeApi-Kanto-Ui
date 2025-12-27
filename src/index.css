@@ -7,6 +7,11 @@
   --carta-clara: #ffffff;
   --texto-claro: #333333;
   --borde-claro: #e0e0e0;
+ /*modo oscuro*/
+  --fondo-oscuro: #1a1a2e;
+  --carta-oscura: #16213e;
+  --texto-oscuro: #e0e0e0;
+  --borde-oscuro: #0f3460;
 }
 
 * {
@@ -17,6 +22,16 @@
 
 body {
   font-family: Verdana;
+}
+
+body.light {
+  background-color: var(--fondo-claro);
+  color: var(--texto-claro);
+}
+
+body.dark {
+  background-color: var(--fondo-oscuro);
+  color: var(--texto-oscuro);
 }
 
 main {
@@ -75,6 +90,24 @@ main {
   font-weight: bold;
 }
 
+/* toggle */
+.theme-toggle {
+  background: var(--azul-pkmn);
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icono-tema {
+  width: 24px;
+  height: 24px;
+}
+
 /* PokemonCards */
 .grid-pokemon {
   display: grid;
@@ -90,6 +123,10 @@ main {
   text-align: center;
   box-shadow: 0 3px 10px rgba(0,0,0,0.1);
   position: relative;
+}
+
+body.dark .tarjeta-pokemon {
+  background: var(--carta-oscura);
 }
 
 .tarjeta-pokemon:hover {

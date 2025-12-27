@@ -1,9 +1,14 @@
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 import Navigation from './Navigation';
+import ThemeToggle from '../ui/ThemeToggle';
 
+interface HeaderProps {
+  theme: 'light' | 'dark';
+  onToggleTheme: () => void;
+}
 
-function Header () {
+function Header ({ theme, onToggleTheme }: HeaderProps) {
   return (
     <header className="cabecera">
       <div className="contenedor">
@@ -16,7 +21,7 @@ function Header () {
         </div>
 
         <Navigation />
-
+        <ThemeToggle theme={theme} onToggle={onToggleTheme} />
       </div>
     </header>
   );
