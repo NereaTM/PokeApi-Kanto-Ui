@@ -106,7 +106,7 @@ function PokemonDetailPage() {
       {species && (
         <div className="badges-container">
           {species.is_legendary && <span className="badge legendary">Legendario</span>}
-          {species.is_mythical && <span className="badge mythical">Mítico</span>}
+          {species.is_mythical && <span className="badge mythical">Singular</span>}
         </div>
       )}
 
