@@ -233,6 +233,73 @@ body.dark .buscador {
   cursor: pointer;
 }
 
+/* filtros */
+.barra-filtros {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: var(--carta-clara);
+  border-radius: 10px;
+  flex-wrap: wrap;
+}
+
+body.dark .barra-filtros {
+  background: var(--carta-oscura);
+}
+
+.filtros-tipos {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.boton-tipo {
+  padding: 0.5rem 1rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: var(--fondo-claro);
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.boton-tipo:hover {
+  transform: translateY(-2px);
+}
+
+.boton-tipo.active {
+  border-color: var(--rojo-pkmn);
+  font-weight: bold;
+}
+
+.selector-orden {
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--borde-claro);
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+}
+
+body.dark .selector-orden {
+  background: var(--carta-oscura);
+  border-color: var(--borde-oscuro);
+  color: var(--texto-oscuro);
+}
+
+.results-info {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--azul-pkmn);
+}
+
+.no-results {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.2rem;
+  color: #999;
+}
+
 /* tipos pokemon */
 .tipo-normal { background-color: #a8a878; color: white; }
 .tipo-fire { background-color: #f08030; color: white; }
@@ -253,6 +320,21 @@ body.dark .buscador {
 .tipo-steel { background-color: #b8b8d0; color: #333; }
 .tipo-fairy { background-color: #ee99ac; color: #333; }
 
+/* loading */
+.loading-container,
+.error-container {
+  text-align: center;
+  padding: 4rem 2rem;
+  font-size: 1.2rem;
+}
+
+.loading-container p {
+  color: var(--azul-pkmn);
+}
+
+.error-container p {
+  color: var(--rojo-pkmn);
+}
 
 /* Footer */
 .footer {
