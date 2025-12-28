@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { fetchPokemon, fetchPokemonSpecies } from '../data/pokeapi';
 import { typeTranslations } from '../utils/translations';
+import { habitatTranslations } from '../utils/translations';
+import { statsTranslations } from '../utils/translations';
 import type { Pokemon, PokemonSpecies } from '../types/pokemon';
 
 function PokemonDetailPage() {
@@ -131,7 +133,7 @@ function PokemonDetailPage() {
           <div className="info-item">
             <span className="info-label">Hábitat:</span>
             <span className="info-value">
-              {species.habitat.name}
+              {habitatTranslations[species.habitat.name] || species.habitat.name}
             </span>
           </div>
         )}
@@ -154,7 +156,7 @@ function PokemonDetailPage() {
           {pokemon.stats.map((stat) => (
             <div key={stat.stat.name} className="stat-item">
               <span className="stat-name">
-                {stat.stat.name} 
+                {statsTranslations[stat.stat.name] || stat.stat.name} 
               </span>
               <div className="stat-bar-container">
                 <div
