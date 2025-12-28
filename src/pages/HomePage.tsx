@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import PokemonCard from '../components/PokemonCard';
 import SearchBar from '../components/ui/SearchBar';
+import FilterBar from '../components/ui/FilterBar';
 import PokemonLoading from '../components/ui/PokemonLoading';
 import { fetchPokemonList, fetchPokemon } from '../data/pokeapi';
 import type { Pokemon } from '../types/pokemon';
@@ -11,6 +12,9 @@ function HomePage() {
   const [error, setError] = useState<string | null>(null);
 
   const [busqueda, setBusqueda] = useState('');
+    const [tipoSeleccionado, setTipoSeleccionado] = useState<string>('all');
+  const [orden, setOrden] = useState<'asc' | 'desc' | 'id'>('id');
+
   
   useEffect(() => {
     async function cargarPokemons() {
@@ -37,15 +41,37 @@ function HomePage() {
 
     cargarPokemons();
   }, []);
+
+  // Array de los tipos pkmn
+    const tiposUnicos = Array.from(
+    new Set(pokemons.flatMap((p) => p.types.map((t) => t.type.name)))
+  );
   
+  // filtro y ordenacion
   const texto = busqueda.trim().toLowerCase();
 
   let pokemonsFiltrados = [...pokemons];
 
+  // filtro por nombre 
   if (texto) {
     pokemonsFiltrados = pokemonsFiltrados.filter((p) => 
       p.name.toLowerCase().includes(texto)
     );
+  }
+
+    // filtro por tipo
+  if (tipoSeleccionado !== 'all') {
+    pokemonsFiltrados = pokemonsFiltrados.filter((p) =>
+      p.types.some((t) => t.type.name === tipoSeleccionado)
+    );
+  }
+  // ordenar
+  if (orden === 'asc') {
+    pokemonsFiltrados.sort((a, b) => a.name.localeCompare(b.name));
+  } else if (orden === 'desc') {
+    pokemonsFiltrados.sort((a, b) => b.name.localeCompare(a.name));
+  } else {
+    pokemonsFiltrados.sort((a, b) => a.id - b.id);
   }
 
   // lottie loading
@@ -57,11 +83,27 @@ function HomePage() {
     );
   }
 
-  if (error) return <p>{error}</p>;
+  if (error) {
+    return (       
+    <main className="contenedor-principal">
+        <div className="error-container">
+          <p>{error}</p>
+        </div>
+      </main>
+    );;
+  }
 
   return (
     <main className="contenedor-principal">
       <SearchBar busqueda={busqueda} actualizarBusqueda={setBusqueda} />
+
+      <FilterBar
+        tipoSeleccionado={tipoSeleccionado}
+        cambiarTipo={setTipoSeleccionado}
+        orden={orden}
+        cambiarOrden={setOrden}
+        tiposPokemon={tiposUnicos}
+      />
 
      <div className="results-info">
         <p>
