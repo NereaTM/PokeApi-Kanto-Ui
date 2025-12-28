@@ -23,7 +23,7 @@ function HomePage() {
         setError(null);
 
         // kanto 151 iniciales
-        const basicList = await fetchPokemonList(20, 0);
+        const basicList = await fetchPokemonList(151, 0);
 
         // con sus detalles
         const detailedPokemons = await Promise.all(
