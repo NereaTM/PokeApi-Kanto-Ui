@@ -169,10 +169,16 @@ function PokemonDetailPage() {
           ))}
         </div>
       </div>
-
-      <Link className="boton boton-volver" to="/">
-        Volver
-      </Link>
+      <div className="detalle-boton-container">
+        <Link className="boton" to={`/add/${pokemon.name}`}>
+          Añadir a mi equipo
+        </Link>
+      </div>
+      <div className="detalle-boton-container">
+        <Link className="boton" to="/">
+          Volver
+        </Link>
+      </div>
     </main>
   );
 }

@@ -4,6 +4,8 @@ import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import HomePage from './pages/HomePage';
 import PokemonDetailPage from './pages/PokemonDetailPage';
+import AddPokemonPage from './pages/AddPokemonPage';
+import TeamPage from './pages/TeamPage';
 import NotFoundPage from './pages/NotFoundPage';
 import './App.css';
 
@@ -30,6 +32,8 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="*" element={<NotFoundPage />} />
         <Route path="/pokemon/:name" element={<PokemonDetailPage />} />
+        <Route path="/add/:name" element={<AddPokemonPage />} />
+        <Route path="/team" element={<TeamPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>
