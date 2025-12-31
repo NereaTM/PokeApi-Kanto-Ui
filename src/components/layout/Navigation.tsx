@@ -11,10 +11,19 @@ function Navigation() {
               return 'nav-link active';
             }
             return 'nav-link';
-          }}
-          end
-        >
+          }}>
           Pokédex
+        </NavLink>
+        
+        <NavLink 
+          to="/team" 
+          className={({ isActive }) => {
+            if (isActive) {
+              return 'nav-link active';
+            }
+            return 'nav-link';
+          }}>
+          Mi Equipo
         </NavLink>
       </div>
     </nav>
