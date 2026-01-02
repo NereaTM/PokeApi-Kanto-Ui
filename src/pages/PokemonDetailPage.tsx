@@ -4,6 +4,7 @@ import { fetchPokemon, fetchPokemonSpecies } from '../data/pokeapi';
 import { typeTranslations } from '../utils/translations';
 import { habitatTranslations } from '../utils/translations';
 import { statsTranslations } from '../utils/translations';
+import { translateText } from '../data/translator';
 import type { Pokemon, PokemonSpecies } from '../types/pokemon';
 
 function PokemonDetailPage() {
@@ -13,6 +14,11 @@ function PokemonDetailPage() {
   const [species, setSpecies] = useState<PokemonSpecies | null>(null);
   const [cargando, setCargando] = useState(true);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+
+  const [descripcionTraducida, setDescripcionTraducida] = useState<string | null>(null);
+  const [traduciendo, setTraduciendo] = useState(false);
+  const [errorTraduccion, setErrorTraduccion] = useState<string | null>(null);
+  const [idiomaActual, setIdiomaActual] = useState<'es' | 'en'>('es');
 
   useEffect(() => {
     async function cargarPokemon() {
@@ -25,6 +31,10 @@ function PokemonDetailPage() {
       try {
         setCargando(true);
         setErrorMsg(null);
+
+        setDescripcionTraducida(null);
+        setErrorTraduccion(null);
+        setIdiomaActual('es');
 
         const pokemonData = await fetchPokemon(name);
         setPokemon(pokemonData)
@@ -54,6 +64,38 @@ function PokemonDetailPage() {
     
     return 'Descripción no disponible';
   };
+
+  // cambiar idioma de la descripcion
+  const handleToggleIdioma = async () => {
+    if (!species) return;
+
+    // Volver a español
+    if (idiomaActual === 'en') {
+      setIdiomaActual('es');
+      return;
+    }
+
+    // Pasar a inglés
+    if (!descripcionTraducida) {
+      setTraduciendo(true);
+      setErrorTraduccion(null);
+
+      try {
+        const traduccion = await translateText(getDescripcionEspanol(), 'en');
+        setDescripcionTraducida(traduccion);
+      } catch {
+        setErrorTraduccion('No se pudo traducir');
+        return;
+      } setTraduciendo(false);
+    }
+
+    setIdiomaActual('en');
+  };
+
+  let descripcionMostrada = getDescripcionEspanol();
+  if (idiomaActual === 'en' && descripcionTraducida) {
+    descripcionMostrada = descripcionTraducida;
+  }
 
   if (cargando) {
     return (
@@ -115,8 +157,23 @@ function PokemonDetailPage() {
           <h3 className="subtitulo-detalle">Descripción</h3>
 
           <p className="descripcion-texto">
-            {getDescripcionEspanol()}
+            {descripcionMostrada}
           </p>
+          {errorTraduccion && (
+            <p className="traduccion-error">
+              {errorTraduccion}
+            </p>
+          )}
+          <button
+            className="boton boton-traduccion"
+            onClick={handleToggleIdioma}
+            disabled={traduciendo}>
+            {traduciendo
+              ? 'Traduciendo...'
+              : idiomaActual === 'es'
+                ? 'Traducir EN'
+                : 'Traducir ES'}
+          </button>
         </div>
       )}
 

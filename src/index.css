@@ -717,6 +717,20 @@ body.dark .team-card-header {
   font-size: 0.9rem;
 }
 
+.traduccion-error {
+  color: var(--rojo-pkmn);
+  margin-top: 0.5rem;
+}
+
+.boton-traduccion {
+  margin-top: 1rem;
+}
+
+.detalle-boton-container {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
 /* Footer */
 .footer {
   background-color: #1D3557;
