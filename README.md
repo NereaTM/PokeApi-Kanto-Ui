@@ -11,10 +11,11 @@ Aplicación web para explorar Pokémon de la región de Kanto
 
 ## APIs consumidas
 ![PokeAPI](https://img.shields.io/badge/PokeAPI-FFCB05?style=for-the-badge&logo=pokemon&logoColor=2E6DB4)
+![MyMemory Translate](https://img.shields.io/badge/MyMemory%20Translate-2B6CB0?style=for-the-badge&logo=googletranslate&logoColor=white)
 
 ## Funcionalidades
 - Búsqueda y filtrado (tipo y ordenación) de los 151 iniciales
-- Vista de detalle con estadísticas y descripción
+- Vista de detalle con estadísticas y descripción (con traducción ES/EN)
 - Gestión de equipo: añadir Pokémon con formulario y guardado en localStorage
 - Toggle de tema claro/oscuro con localStorage
 
