@@ -28,7 +28,7 @@ function PokemonCard({ pokemon }: PokemonCardProps) {
   return (
     <article className="tarjeta-pokemon">
       <span className="pokemon-number">
-      {numeroFormateado}
+      #{numeroFormateado}
       </span>
 
       <img

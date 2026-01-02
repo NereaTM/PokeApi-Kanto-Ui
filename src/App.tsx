@@ -7,7 +7,6 @@ import PokemonDetailPage from './pages/PokemonDetailPage';
 import AddPokemonPage from './pages/AddPokemonPage';
 import TeamPage from './pages/TeamPage';
 import NotFoundPage from './pages/NotFoundPage';
-import './App.css';
 
 function App() {
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
