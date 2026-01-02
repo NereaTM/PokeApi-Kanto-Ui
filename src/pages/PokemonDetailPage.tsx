@@ -130,7 +130,7 @@ function PokemonDetailPage() {
           {nombreCapitalizado}
         </h2>
         <span className="pokemon-number-detail">
-          {String(pokemon.id).padStart(3, '0')}
+          #{String(pokemon.id).padStart(3, '0')}
         </span>
       </div>
 
