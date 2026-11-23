@@ -35,6 +35,3 @@ cd pokeapi
 ```bash
   npm run dev
 ```
-
-## Licencia
-Proyecto escolar de DAM Curso 2025–2026. Desarrollo Interfaces
